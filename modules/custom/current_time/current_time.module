@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains current_time.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function current_time_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the current_time module.
+    case 'help.page.current_time':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Latest Date and Time') . '</p>';
+      return $output;
+
+    default:
+  }
+}

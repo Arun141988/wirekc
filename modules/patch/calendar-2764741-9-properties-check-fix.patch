@@ -1,0 +1,13 @@
+diff --git a/html/drupal8_wirekc/modules/contrib/calendar/calendar.views.inc b/html/drupal8_wirekc/modules/contrib/calendar/calendar.views.inc
+index d54da01..7146170 100644
+--- a/html/drupal8_wirekc/modules/contrib/calendar/calendar.views.inc
++++ b/html/drupal8_wirekc/modules/contrib/calendar/calendar.views.inc
+@@ -13,7 +13,7 @@
+ function calendar_views_data_alter(array &$data) {
+   foreach ($data as $table_name => $table_data) {
+     foreach ($table_data as $property_name => $properties) {
+-      if (isset($properties['argument']) && $properties['argument']['id'] === 'date') {
++      if (isset($properties['argument']['id']) && $properties['argument']['id'] === 'date') {
+         $data[$table_name] += _calendar_create_field_arguments($property_name);
+       }
+     }

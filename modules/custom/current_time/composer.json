@@ -1,0 +1,14 @@
+{
+  "name": "drupal/current_time",
+  "type": "drupal-module",
+  "description": "Latest Date and Time",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/current_time",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/current_time",
+    "source": "http://cgit.drupalcode.org/current_time"
+  },
+  "require": { }
+}

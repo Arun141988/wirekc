@@ -1,0 +1,103 @@
+{%
+  set classes = [
+    'node',
+    'node-detail',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'clearfix',
+  ]
+%}
+
+<!-- Start Display event for teaser page -->
+{% if teaser == true %} 
+  <article{{ attributes.addClass(classes) }}>
+    <div class="post-block display-term">
+      
+      <div class="post-thumbnail post-{{ post_format }}">
+        {{ content.field_image }}
+      </div>
+
+      <div class="post-content">
+        {{ title_prefix }}
+           <h3{{ title_attributes.addClass('post-title') }}><a href="{{ url }}" rel="bookmark">{{ label }}</a></h3>
+        {{ title_suffix }}         
+        <div class="post-meta">
+          <span class="post-author"> {{ author_name }} </span>
+          <span class="space">-</span>
+          <span class="post-created"> {{ date }} </span> 
+        </div>
+        <div class="post-body">
+          {{ content.body }}
+        </div>
+        <div class="post-body general info">          
+          {{ content.field_general_information }}
+        </div>
+        <div class="post-map">
+		  <h3>Location</h3>	
+          {{content.field_locations}}
+        </div>
+        <div class="post-link">
+          <h4>Article Posted Link</h4>	
+          {{content.field_event_posted_url}}
+        </div>
+      </div>
+
+    </div>
+  </article>  
+
+<!-- End Display event for teaser page -->
+{% else %}
+<!-- Start Display event for detail page -->
+
+<article{{ attributes.addClass(classes) }}>
+  <div class="post-block">
+      
+    <div class="post-thumbnail post-{{ post_format }}">
+      {{ content.field_image }} 
+    </div>
+
+    <div class="post-content">
+      
+      {{ title_prefix }}
+         <h1{{ title_attributes.addClass('post-title') }}>{{ label }}</h1>
+      {{ title_suffix }}         
+      <div class="post-meta">
+          <span class="post-author"> {{ author_name }} </span>
+          <span class="space">-</span>
+          <span class="post-created"> {{ date }} </span> 
+        </div>
+      
+      {% if display_submitted %}
+        <div class="node__meta hidden">
+          {{ author_picture }}
+          <span{{ author_attributes }}>
+            {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+          </span>
+          {{ metadata }}
+        </div>
+      {% endif %}
+		<div class="post-body">
+          {{ content.body }}
+        </div>
+        <div class="post-body general info">          
+          {{ content.field_general_information }}
+        </div>
+        <div class="post-map">
+          <h3>Location</h3>
+          {{content.field_locations}}
+        </div>       
+        <div class="post-link">
+		  <h4>Article Posted Link</h4>	
+          {{content.field_event_posted_url}}
+        </div>
+    </div>
+
+  </div>
+
+</article>
+
+<!-- End Display event for detail page -->
+{% endif %}

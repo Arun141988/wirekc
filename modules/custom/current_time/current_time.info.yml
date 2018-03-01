@@ -1,0 +1,5 @@
+name: Current Time
+type: module
+description: Latest Date and Time
+core: 8.x
+package: Custom
